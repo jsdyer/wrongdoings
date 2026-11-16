@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17201c">
+  <meta name="description" content="Browse published findings of wrongdoing at federal institutions. Read official case descriptions, recommendations and corrective measures.">
+  <title>The Government’s Wrongdoing Files · CoolCode</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#research">Skip to search</a>
+<header class="mast">
+  <div class="wrap mast-inner">
+    <a class="brand" href="https://coolcode.ca/"><span aria-hidden="true">&gt;_</span>CoolCode.ca</a>
+    <nav aria-label="Research tools"><a href="https://coolcode.ca/atip/">ATIP Explorer</a><a href="#sources">About the data</a></nav>
+  </div>
+</header>
+<main>
+  <section class="hero"><div class="wrap hero-grid">
+    <div><p class="kicker">FEDERAL DISCLOSURE ARCHIVE</p><h1>The Government’s Wrongdoing Files<span aria-hidden="true">.</span></h1><p class="intro">Browse published findings of wrongdoing at federal institutions. Read official case descriptions, recommendations and corrective measures.</p></div>
+    <aside class="source-panel" aria-label="Dataset overview">
+      <p>FEDERAL DISCLOSURES</p>
+      <strong id="record-count">—</strong><span>published files</span>
+      <small id="institutions">Preparing the snapshot</small>
+      <small id="record-date"></small>
+    </aside>
+  </div></section>
+  <div class="wrap main-grid" id="research">
+    <section aria-label="Explore the records">
+      <form class="panel search" id="search-form" role="search">
+        <label class="query-label" for="query">Search case descriptions and corrective measures</label>
+        <div class="query-row"><input id="query" type="search" placeholder="Try “conflict of interest”, training, or public funds" autocomplete="off" maxlength="240" aria-describedby="search-help"><button type="button" id="clear-query" hidden>Clear</button></div>
+        <p id="search-help" class="small">Search English and French. Use quotation marks for a phrase or a minus sign to exclude a word.</p>
+        <div class="chips" id="chips" aria-label="Suggested searches"></div>
+        <div class="filters">
+          <label>Institution<select id="org"><option value="">All institutions</option></select></label>
+          <label>Year<select id="year"><option value="">All years</option></select></label>
+          <label id="category-label" hidden>Finding category<select id="category"><option value="">All categories</option></select></label>
+          <label>Language<select id="lang"><option value="en">English</option><option value="fr">French</option></select></label>
+        </div>
+      </form>
+      <div class="results-head"><div><h2>Published files</h2><p id="status" role="status" aria-live="polite">Loading searchable data…</p></div><button class="ghost" id="reset" type="button">Reset filters</button></div>
+      <div class="panel compare-tray" id="compare-tray" hidden><p id="compare-status"></p><div><button id="compare-open" type="button" class="primary">Compare notes</button> <button id="compare-clear" type="button">Clear</button></div></div>
+      <div id="results"></div>
+      <nav class="pager" id="pagination" aria-label="Result pages" hidden><button id="previous" type="button">← Previous</button><span id="page-info"></span><button id="next" type="button">Next →</button></nav>
+    </section>
+    <aside class="side">
+      <section class="panel" id="sources"><p class="kicker">READING THE RECORDS</p><h2>About this archive</h2><p>This snapshot contains founded cases published under the Public Servants Disclosure Protection Act. It covers the federal catalogue’s disclosures. Counts depend on publication coverage and do not measure how frequently wrongdoing occurs.</p>
+        <p id="provenance" class="small"></p><ul class="source-links"><li><a href="https://open.canada.ca/data/en/dataset/6e75f19c-d19d-48aa-984e-609c8d9bc403">Official catalogue ↗</a></li><li><a href="https://search.open.canada.ca/wrongdoing/">Search the government portal ↗</a></li><li><a href="https://open.canada.ca/data/dataset/6e75f19c-d19d-48aa-984e-609c8d9bc403/resource/84a77a58-6bce-4bfb-ad67-bbe452523b14/download/wrongdoing.csv">Download the original CSV ↗</a></li></ul>
+      </section>
+      <section class="panel"><h2>Keep researching</h2><p>Use an institution, reference, or subject to find completed access requests and draft your next question.</p><a href="https://coolcode.ca/atip/">Open ATIP Explorer ↗</a></section>
+    </aside>
+  </div>
+</main>
+<footer><div class="wrap"><a href="https://coolcode.ca/"><strong>CoolCode.ca</strong></a><p>Contains information licensed under the <a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a>. Source: Treasury Board of Canada Secretariat.</p><a href="https://github.com/jsdyer/wrongdoings">Source code ↗</a></div></footer>
+<dialog id="dialog" aria-labelledby="detail-heading"><div class="dialog-header"><h2 id="detail-heading"></h2><form method="dialog"><button type="submit">Close</button></form></div><div id="detail-body"></div></dialog>
+<noscript><p class="wrap">Enable JavaScript to search this snapshot. <a href="https://search.open.canada.ca/wrongdoing/">Search the official portal.</a></p></noscript>
+</body>
+</html>

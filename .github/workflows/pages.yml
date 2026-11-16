@@ -1,0 +1,58 @@
+name: Build and publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'scripts/**'
+      - 'dataset.json'
+      - 'requirements.txt'
+      - '.github/workflows/pages.yml'
+  schedule:
+    - cron: '41 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@v5
+      - name: Build the static application
+        run: |
+          if test -f requirements.txt; then
+            python3 -m venv "$RUNNER_TEMP/app-venv"
+            . "$RUNNER_TEMP/app-venv/bin/activate"
+            python3 -m pip install -r requirements.txt
+          fi
+          python3 scripts/build.py
+          test -s dist/index.html
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages
+        id: publish
+        uses: actions/deploy-pages@v4

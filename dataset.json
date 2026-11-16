@@ -1,0 +1,27 @@
+{
+  "name": "The Government’s Wrongdoing Files",
+  "kind": "wrongdoing",
+  "recordLabel": "published files",
+  "dataset": "https://open.canada.ca/data/en/dataset/6e75f19c-d19d-48aa-984e-609c8d9bc403",
+  "csv": "https://open.canada.ca/data/dataset/6e75f19c-d19d-48aa-984e-609c8d9bc403/resource/84a77a58-6bce-4bfb-ad67-bbe452523b14/download/wrongdoing.csv",
+  "sourceSearch": "https://search.open.canada.ca/wrongdoing/",
+  "reference": "ref_number",
+  "date": "file_id_date",
+  "minimum": 10,
+  "compare": false,
+  "extraFields": ["findings_conclusions"],
+  "chips": ["conflict of interest", "procurement", "public funds", "disciplinary", "training", "harassment"],
+  "findingNames": {
+    "a": "Contravention of an Act or regulation",
+    "b": "Misuse of public funds or a public asset",
+    "c": "Gross mismanagement in the public sector",
+    "d": "Substantial and specific danger",
+    "e": "Serious breach of a code of conduct",
+    "f": "Knowingly directing or counselling a wrongdoing"
+  },
+  "sections": [
+    ["Case description", "case_description_en", "case_description_fr"],
+    ["Recommendations and corrective measures", "recommendations_corrective_measures_en", "recommendations_corrective_measures_fr"],
+    ["File identifier", "file_id_number", ""]
+  ]
+}
