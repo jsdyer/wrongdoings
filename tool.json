@@ -1,0 +1,21 @@
+{
+  "id": "wrongdoings",
+  "title": "The Government’s Wrongdoing Files",
+  "description": "Read published findings, recommendations and corrective actions.",
+  "category": "explorers",
+  "tags": [
+    "federal",
+    "misconduct",
+    "disclosures"
+  ],
+  "icon": "gavel",
+  "url": "/wrongdoings/",
+  "source": "https://github.com/jsdyer/wrongdoings",
+  "hosting": "project",
+  "access": "browser",
+  "data_info": {
+    "mode": "snapshot",
+    "detail": "Federal disclosures describe founded wrongdoing and the department’s response.",
+    "cadence": "Daily"
+  }
+}

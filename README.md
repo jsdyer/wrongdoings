@@ -1,5 +1,9 @@
 # The Government’s Wrongdoing Files
 
+<!-- coolcode:guide -->
+Filter by institution, year or finding category, then read the published case description and corrective response together. The index covers published founded cases and cannot measure all complaints or an institution’s overall prevalence of wrongdoing.
+<!-- /coolcode:guide -->
+
 [Open the live explorer](https://coolcode.ca/wrongdoings/)
 
 Search the federal [Acts of Founded Wrongdoing catalogue](https://open.canada.ca/data/en/dataset/6e75f19c-d19d-48aa-984e-609c8d9bc403). Filter by institution, year, or official finding category and open the published case description and response. Search covers the English and French source fields, including recommendations and corrective measures.
