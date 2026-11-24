@@ -22,3 +22,11 @@ Open http://localhost:8000/. Use a current browser with Web Worker and gzip deco
 GitHub Actions builds and publishes this site on a daily schedule, app changes, and manual workflow runs. The build downloads the official CSV documented in `dataset.json`. Generated browser files live in the Pages artifact. Download or schema failures stop deployment and retain the last successfully published snapshot.
 
 Contains information licensed under the [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada). Publisher: Treasury Board of Canada Secretariat.
+
+<!-- schedule-reliability -->
+## Schedule reliability
+
+Public GitHub repositories can have scheduled workflows disabled after 60 days of inactivity. A separate weekly [schedule guard](.github/workflows/schedule-guard.yml) calls GitHub's enable-workflow API for an explicit list of refresh workflows and itself. It can restore workflows disabled for inactivity, preserves manually disabled workflows, and runs independently of collection failures.
+
+This is an interim mitigation, not a scheduling guarantee: GitHub does not document active-workflow renewal as a permanent exemption, and scheduled runs can be delayed or dropped. A scheduler on our own Linux server is the planned independent trigger. The guard does not collect data, create dummy commits, or change source/check timestamps; successful collection and published data freshness still need monitoring.
+<!-- /schedule-reliability -->
